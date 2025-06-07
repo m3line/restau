@@ -1,0 +1,620 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Fleur+De+Leah&family=Francois+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&family=Francois+One&display=swap');
+@font-face {
+  font-family: FuturaMedium;
+  src: url(font/FuturaMedium.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background-color: #fdf7f2;
+  color: #3a2e2e;
+}
+.social-icon {
+  font-size: 28px;
+  color: white;
+  transition: color 0.3s ease;
+}
+.social-icon:hover {
+  color: #E1306C; /* couleur Instagram */
+}
+
+/* Barre de navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(172, 44, 24, 0.9); /* Couleur rouge + 80% d’opacité */
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out;
+}
+
+.logo {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'FuturaMedium', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  color: #ffd5bc;
+}
+
+/* Section Accueil */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px; 
+  position: relative;
+}
+
+#home video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+#home .content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+#home h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-family: 'FuturaMedium', sans-serif;
+  letter-spacing: 3px;
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+.btn {
+  background-color: #a94e3f;
+  border: none;
+  padding: 15px 30px;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Figtree', sans-serif;
+}
+
+.btn:hover {
+  background-color: #8c3d32;
+}
+
+/* Section Menu */
+.menu-section {
+  background-color: #fdf7f2;
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Francois One', sans-serif;
+  font-size: 2.8rem;
+  color: #b54334;
+  margin-bottom: 60px;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.menu-card {
+  width: 280px;
+  background-color: #fff3eb;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: scale(1.05);
+}
+
+.card-top {
+  position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* clip-path: ellipse(100% 85% at 50% 15%); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.card-top h3 {
+  font-family: 'FuturaMedium';
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.card-bottom {
+  background-color: #c7523f;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Section À Propos */
+.propos {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to bottom, #1e7f1e, #f2c94c, #c0392b); /* Vert, jaune, rouge */
+  padding: 60px 20px;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  border: 3px solid #fff3eb;
+}
+
+.propos h2,
+.propos h3 {
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 30px;
+}
+
+.col-md-4 {
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+/* Cartes */
+.card {
+  background: white;
+  color: #333;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.col-md-4:nth-child(1) .card {
+  animation-delay: 0.2s;
+}
+.col-md-4:nth-child(2) .card {
+  animation-delay: 0.4s;
+}
+.col-md-4:nth-child(3) .card {
+  animation-delay: 0.6s;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1e7f1e;
+}
+
+.card-text {
+  font-size: 0.95rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .propos {
+    padding: 40px 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+
+/* Formulaire de Réservations */
+.reservations-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.reservation {
+  background-image: url('piceth.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.reservations-form > form {
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.2); /* Blanc très transparent */
+    backdrop-filter: blur(9px); /* Floute l’arrière-plan pour un bel effet */
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  
+}
+.reservations-form input,
+.reservations-form textarea {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+
+.special-title-1 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.special-title-2 {
+  margin-bottom: 25px;
+  font-size: 2.8rem;
+}
+
+.form-row {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.form-group {
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.reservations-form label {
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+
+.reservations-form input, 
+.reservations-form textarea {
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  border-width: 2px;
+}
+
+.reservations-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.reservations-form .btn.btn-light {
+  padding: 10px 25px;
+  font-size: 0.85rem;
+  margin-top: 20px;
+  align-self: center;
+}
+
+.text-center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  #home h1 {
+    font-size: 2.2rem;
+  }
+
+  .btn {
+    padding: 12px 20px;
+  }
+
+  .reservations-form > form {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .special-title-1 {
+    font-size: 0.9rem;
+  }
+  
+  .special-title-2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-row {
+    margin-bottom: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  }
+  
+  .reservations-form input, 
+  .reservations-form textarea {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .reservations-form textarea {
+    min-height: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .reservations-form > form {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .special-title-2 {
+    font-size: 1.8rem;
+  }
+}
+.menu-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Add a subtle click effect */
+.menu-card:active {
+  transform: translateY(-2px);
+}
+.footer {
+  background-color: #7a1f05;
+  color: #f5f5dc;
+  padding: 40px 20px 20px;
+  font-family: 'Georgia', serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 30px;
+  align-items: start;
+}
+
+.footer-title {
+  font-size: 3rem;
+  margin: 0 0 20px 0;
+  grid-column: 1;
+  grid-row: 1;
+  letter-spacing: 2px;
+  font-family: "Fleur De Leah", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer-info {
+  grid-column: 1;
+  grid-row: 2;
+  line-height: 1.6;
+}
+
+.footer-info a {
+  color: #f5f5dc;
+  text-decoration: underline;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-info p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: #f5f5dc;
+  text-decoration: underline;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-hours {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  text-align: left;
+  padding-top: 20px;
+}
+
+.footer-hours p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.footer-hours strong {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.footer-copy {
+  grid-column: 1 / 4;
+  grid-row: 3;
+  text-align: center;
+  margin: 30px 0 0 0;
+  padding-top: 20px;
+  border-top: 1px solid #6a7a5a;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 25px;
+      text-align: center;
+  }
+  
+  .footer-title {
+      grid-column: 1;
+      grid-row: 1;
+      font-size: 2.5rem;
+      text-align: center;
+  }
+  
+  .footer-info {
+      grid-column: 1;
+      grid-row: 2;
+  }
+  
+  .footer-links {
+      grid-column: 1;
+      grid-row: 3;
+      padding-top: 0;
+  }
+  
+  .footer-hours {
+      grid-column: 1;
+      grid-row: 4;
+      padding-top: 0;
+      text-align: center;
+  }
+  
+  .footer-copy {
+      grid-column: 1;
+      grid-row: 5;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+      padding: 30px 15px 15px;
+  }
+  
+  .footer-title {
+      font-size: 2rem;
+  }
+  
+  .footer-info a,
+  .footer-info p,
+  .footer-hours p {
+      font-size: 0.9rem;
+  }
+  
+  .footer-links a {
+      font-size: 0.9rem;
+  }
+}

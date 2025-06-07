@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Karamara</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="ethiopia.svg" type="image/icon type">
+    
+</head>
+<body>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+<nav class="navbar" id="navbar">
+    <div class="logo"> Restaurant Karamara ካራማራ</div>
+    <ul class="nav-links">
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#menu">La Carte</a></li>
+      <li><a href="#reservation">Réserver</a></li>
+    </ul>
+    <a href="https://instagram.com/karamararestaurant" target="_blank">
+      <i class='bx bxl-instagram' style="color: white; font-size: 24px;"></i>
+    </a>
+</nav>
+<!--ACCEUIL-->
+  <section id="home">
+    <video src="home.mov" muted loop autoplay playsinline preload="metadata"></video>
+    <div class="content">
+      <h1>CUISINE ETHIOPIENNE</h1>
+      <div class="button-container">
+        <button class="btn" onclick="document.getElementById('reservation').scrollIntoView({behavior: 'smooth'})">Réserver une table</button>
+      </div>
+    </div>
+  </section>
+  
+  <section id="menu" class="menu-section">
+    <h2 class="section-title">DÉCOUVREZ LA CARTE</h2>
+  
+    <div class="cards-wrapper">
+      <!-- PLATS -->
+      <div class="menu-card" onclick="openPDF('plats')">
+        <div class="card-top" style="background-image: url('plats.jpg');">
+          <h3>ENTREES,<br>
+            PLATS,<br>
+            DESSERTS</h3>
+        </div>
+        <div class="card-bottom">
+          SPÉCIALITÉS ÉTHIOPIENNES
+        </div>
+      </div>
+  
+      <!-- BOISSONS -->
+      <div class="menu-card" onclick="openPDF('boissons')">
+        <div class="card-top" style="background-image: url('boissons.jpg');">
+          <h3>BOISSONS</h3>
+        </div>
+        <div class="card-bottom">
+Café Traditionnel, Bières éthiopiennes,...       
+ </div>
+      </div>
+
+    </div>
+  </section>
+  
+<!-- Section À Propos -->
+<div class="propos" id="propos">
+  <h2 class="special-title-1">Bienvenue en</h2>
+  <h3 class="special-title-2">Éthiopie</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Un autre calendrier</h5>
+          <p class="card-text">
+            L’Éthiopie suit un calendrier basé sur l’ancien calendrier copte : il y a 13 mois et l’année est environ 7 à 8 ans derrière le calendrier grégorien. Par exemple, quand on est en 2025 ailleurs, c’est 2017 là-bas !          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Le drapeau pan-africain </h5>
+          <p class="card-text">
+            L’Éthiopie n’a jamais été colonisée et est un symbole d’indépendance africaine. Son drapeau (vert, jaune, rouge) a inspiré de nombreux autres pays africains et les mouvements panafricains.          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Le seul pays d’Afrique avec son propre alphabet et script</h5>
+          <p class="card-text">
+            Contrairement à la majorité des pays africains, l’Éthiopie n’utilise pas un alphabet latin ou arabe, mais un système d’écriture propre, le ge'ez, utilisé depuis l’Antiquité.          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <!--reserver-->
+  <section class="reservation" id="reservation">
+  
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-90px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+
+    // Function to open PDF menus
+    function openPDF(menuType) {
+      let pdfPath;
+      
+      if (menuType === 'plats') {
+        pdfPath = './menu/plats.pdf'; // Replace with your actual PDF file path
+      } else if (menuType === 'boissons') {
+        pdfPath = './menu/boissons.pdf'; // Replace with your actual PDF file path
+      }
+      
+      // Open PDF in a new tab/window
+      if (pdfPath) {
+        window.open(pdfPath, '_blank');
+      }
+    }
+    
+    </script>
+    
+            <!-- RESERVATIONS FORM -->
+<div class="container-fluid reservations-form dark-overlay" id="reserv">
+  <form action="https://formspree.io/f/xrbkeyae" method="POST">
+    <h1 id="title-1" class="special-title-1 text-center">Réservations</h1>
+    <h2 id="title-2" class="special-title-2 text-center">Réserver Une Table</h2>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName">NOM:</label>
+        <input type="text" name="Nom" class="form-control" id="inputName" placeholder="Jean Louis" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputEmail">EMAIL:</label>
+        <input type="email" name="Email" class="form-control" id="inputEmail" placeholder="nom@exemple.com" required>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputDate">DATE:</label>
+        <input type="date" name="Date" class="form-control" id="inputDate" required>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputTime">HEURE:</label>
+        <input type="time" name="Heure" class="form-control" id="inputTime" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputNumber">PERSONNES:</label>
+        <input type="number" name="Personne(es)" min="1" class="form-control" id="inputNumber" placeholder="1" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputPhone">NUMERO:</label>
+        <input type="tel" name="Numero" class="form-control" id="inputPhone" placeholder="06 99 12 34 56" required>
+      </div>
+    </div>
+        <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="inputTextarea">MESSAGE:</label>
+        <textarea class="form-control" name="Message" id="inputTextarea" rows="7" placeholder="NB: Pour toutes annulations merci de nous en faire part."></textarea>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-12" style="text-align: center;">
+        <button type="submit" class="btn btn-light">ENVOYER</button>
+      </div>
+    </div>
+    
+    <script>
+      // Définir la date minimale à aujourd'hui
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('inputDate').setAttribute('min', today);
+    </script>
+  </form>
+</div>
+</section>
+<footer class="footer">
+  <div class="footer-container">
+      <h2 class="footer-title">Karamara</h2>
+      <div class="footer-info">
+        <a href="https://maps.app.goo.gl/vxfgqjUJ2WX52jG2A" target="_blank">151 Rue Colbert, 37000 TOURS</a>
+          <p><a href="mailto:karamara151@gmail.com">Karamara151@gmail.com</a></p>
+          <p><a href="tel:0627620778">0627620778</a></p>
+      </div>
+      <div class="footer-links">
+          <ul>
+              <li><a href="#reservation">RESERVATIONS</a></li>
+              <li><a href="#menu">MENU</a></li>
+              <li><a href="#propos">A PROPOS</a></li>
+          </ul>
+      </div>
+      <div class="footer-hours">
+          <p><strong>HORAIRES D'OUVERTURE</strong></p>
+          <p>MARDI - SAMEDI: 12:00 - 15:00 | 19:00 - 00:00</p>
+          <p>LUNDI - DIMANCHE: 19:00 - 00:00</p>
+      </div>
+      <p class="footer-copy">© 2025 KARAMARA All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
