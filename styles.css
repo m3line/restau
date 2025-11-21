@@ -37,6 +37,8 @@ body {
   width: 100%;
   z-index: 1000;
   transition: top 0.3s ease-in-out;
+  /* Nouveau : Assure que les éléments restent sur une ligne */
+  flex-wrap: nowrap;
 }
 
 .logo {
@@ -46,15 +48,21 @@ body {
   font-family: 'FuturaMedium', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
+  /* Nouveau : Pour éviter que le logo ne rétrécisse */
+  flex-shrink: 0; 
 }
 
 .nav-links {
   list-style: none;
   display: flex;
+  /* Nouveau : Empêche le retour à la ligne */
+  flex-wrap: nowrap; 
 }
 
 .nav-links li {
   margin: 0 20px;
+  /* Nouveau : Pour éviter que les liens ne rétrécissent trop */
+  flex-shrink: 0;
 }
 
 .nav-links a {
@@ -128,6 +136,8 @@ body {
   background-color: #fdf7f2;
   padding: 100px 60px;
   text-align: center;
+  /* Nouveau : S'assurer que le padding ne fait pas déborder sur mobile */
+  overflow-x: auto; 
 }
 
 .section-title {
@@ -139,18 +149,26 @@ body {
 
 .cards-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  /* IMPERATIF : Empêche le retour à la ligne sur mobile */
+  flex-wrap: nowrap; 
   justify-content: center;
   gap: 40px;
+  /* Nouveau : Ajoute un espace suffisant pour contenir les cartes côte à côte */
+  width: max-content; 
+  margin: 0 auto;
+  padding-bottom: 20px; /* Pour l'espace de défilement horizontal */
 }
 
 .menu-card {
   width: 280px;
+  /* IMPERATIF : Empêche les cartes de rétrécir sur mobile */
+  flex-shrink: 0; 
   background-color: #fff3eb;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .menu-card:hover {
@@ -206,6 +224,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* Nouveau : Assure que les colonnes 'À Propos' s'empilent sur les petits écrans */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -217,11 +236,12 @@ body {
 }
 
 .col-md-4 {
+  /* Laisser les règles Bootstrap gérer ceci, mais s'assurer qu'elles s'empilent en dessous de 'md' */
   flex: 1 1 300px;
   max-width: 350px;
 }
 
-/* Cartes */
+/* Cartes 'À Propos' */
 .card {
   background: white;
   color: #333;
@@ -262,17 +282,6 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .propos {
-    padding: 40px 15px;
-  }
-
-  .card {
-    padding: 15px;
   }
 }
 
@@ -331,6 +340,8 @@ body {
 .form-row {
   margin-bottom: 12px;
   display: flex;
+  /* Reste horizontal pour forcer les champs à être côte à côte */
+  flex-wrap: wrap; 
   justify-content: center;
   width: 100%;
   max-width: 800px;
@@ -371,20 +382,14 @@ body {
   align-items: center;
 }
 
-/* Responsive */
+/* SUPPRESSION DES RÈGLES RESPONSIVE QUI CAUSAIENT L'EMPILAGE */
+/* J'ai supprimé la @media query pour la barre de navigation et j'ai ajusté le CSS général. */
+
+/* Ajustements pour les titres sur mobile, conservés pour la lisibilité */
 @media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-  }
+  /* La navbar n'est plus en flex-direction: column; */
 
-  .nav-links {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-  }
+  /* Les liens ne sont plus en flex-direction: column; */
 
   #home h1 {
     font-size: 2.2rem;
@@ -437,6 +442,7 @@ body {
     font-size: 1.8rem;
   }
 }
+
 .menu-card {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -461,7 +467,8 @@ body {
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
+  /* Laisse le grid pour les grands écrans */
+  display: grid; 
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
   gap: 30px;
@@ -560,7 +567,7 @@ body {
   opacity: 0.8;
 }
 
-/* Responsive Design */
+/* Responsive Design pour le footer - Conservé, car il gère bien l'empilement du pied de page */
 @media (max-width: 768px) {
   .footer-container {
       grid-template-columns: 1fr;
@@ -618,59 +625,43 @@ body {
   .footer-links a {
       font-size: 0.9rem;
   }
-}
+}@media screen and (max-width: 768px) {
+  
+  /* FORCE L'EMPILLEMENT VERTICAL sur les petits écrans */
+  .navbar {
+    flex-direction: column; /* Le logo, les liens et l'icône s'empilent */
+    padding: 15px 10px;
+    align-items: center; /* Centre le contenu horizontalement */
+  }
 
-/* Fenêtre modale */
-#modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(15, 23, 42, 0.8); /* overlay sombre */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+  /* Centrer la liste de liens */
+  .nav-links {
+    flex-direction: column; /* Empile les liens individuellement (Accueil, La Carte, Réserver) */
+    align-items: center; /* Centre les liens (texte) */
+    padding: 10px 0; /* Ajouter un peu d'espace vertical */
+    width: 100%;
+  }
 
-/* Contenu de la boîte modale */
-#modal-box {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 2em;
-  width: 90%;
-  max-width: 30rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-  position: relative;
-  text-align: center;
-}
+  .nav-links li {
+    margin: 5px 0; /* Ajouter de l'espace vertical entre les liens */
+  }
+  
+  .nav-links a {
+    font-size: 1em; /* Taille standard */
+  }
 
-/* Bouton de fermeture */
-#close-btn {
-  position: absolute;
-  top: 0.75em;
-  right: 0.75em;
-  font-size: 1.5rem;
-  color: #6b7280;
-  cursor: pointer;
-  transition: color 0.2s ease-in-out;
-}
-
-#close-btn:hover {
-  color: #111827;
-}
-
-/* Titre */
-#modal-box h2 {
-  font-size: 1.5rem;
-  color: #111827;
-  margin-bottom: 1rem;
-}
-
-/* Paragraphe */
-#modal-box p {
-  font-size: 1rem;
-  color: #374151;
-  line-height: 1.6;
+  .logo {
+    font-size: 1.2em;
+    margin-bottom: 10px; /* Espace sous le logo */
+  }
+  
+  /* Gérer l'icône Instagram (elle va s'empiler en dernier) */
+  .navbar > a {
+    margin-top: 10px;
+  }
+  
+  #home h1 {
+    font-size: 2.2rem;
+  }
+  /* ... le reste de votre media query ... */
 }
