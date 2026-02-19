@@ -1,16 +1,26 @@
 window.onload = function () {
   const modal = document.getElementById('modal');
   const closeBtn = document.getElementById('close-btn');
-
-  // Show modal after short delay
+  const okBtn = document.getElementById('modal-ok-btn'); 
   setTimeout(() => {
-    modal.style.display = 'flex';
+    if(modal) modal.style.display = 'flex';
   }, 500);
 
-  closeBtn.onclick = function () {
-    modal.style.display = 'none';
-  };
+  // Fermer avec la croix
+  if(closeBtn) {
+    closeBtn.onclick = function () {
+      modal.style.display = 'none';
+    };
+  }
 
+  // Fermer avec le bouton "Compris"
+  if(okBtn) {
+    okBtn.onclick = function () {
+      modal.style.display = 'none';
+    };
+  }
+
+  // Fermer en cliquant sur le fond noir
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = 'none';
