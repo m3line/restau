@@ -17,13 +17,62 @@ body {
   color: #3a2e2e;
 }
 
+.modal-fermeture {
+  display: none; 
+  position: fixed; /* Indispensable pour que ça flotte sur PC */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); 
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Passe devant le footer et la vidéo */
+  padding: 20px;
+}
+
+.modal-content-fermeture {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  border-top: 10px solid #ac2c18; 
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.4s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #999;
+  line-height: 1;
+}
+
+.modal-content-fermeture h2 {
+  font-family: 'Francois One', sans-serif;
+  color: #ac2c18;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
 .social-icon {
   font-size: 28px;
   color: white;
   transition: color 0.3s ease;
 }
 .social-icon:hover {
-  color: #E1306C; /* couleur Instagram */
+  color: #E1306C; /
 }
 
 /* Barre de navigation */
@@ -48,20 +97,17 @@ body {
   font-family: 'FuturaMedium', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
-  /* Nouveau : Pour éviter que le logo ne rétrécisse */
   flex-shrink: 0; 
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  /* Nouveau : Empêche le retour à la ligne */
   flex-wrap: nowrap; 
 }
 
 .nav-links li {
   margin: 0 20px;
-  /* Nouveau : Pour éviter que les liens ne rétrécissent trop */
   flex-shrink: 0;
 }
 
@@ -149,19 +195,16 @@ body {
 
 .cards-wrapper {
   display: flex;
-  /* IMPERATIF : Empêche le retour à la ligne sur mobile */
   flex-wrap: nowrap; 
   justify-content: center;
   gap: 40px;
-  /* Nouveau : Ajoute un espace suffisant pour contenir les cartes côte à côte */
   width: max-content; 
   margin: 0 auto;
-  padding-bottom: 20px; /* Pour l'espace de défilement horizontal */
+  padding-bottom: 20px;
 }
 
 .menu-card {
   width: 280px;
-  /* IMPERATIF : Empêche les cartes de rétrécir sur mobile */
   flex-shrink: 0; 
   background-color: #fff3eb;
   border-radius: 20px;
@@ -224,7 +267,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Nouveau : Assure que les colonnes 'À Propos' s'empilent sur les petits écrans */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -236,7 +278,6 @@ body {
 }
 
 .col-md-4 {
-  /* Laisser les règles Bootstrap gérer ceci, mais s'assurer qu'elles s'empilent en dessous de 'md' */
   flex: 1 1 300px;
   max-width: 350px;
 }
@@ -340,7 +381,6 @@ body {
 .form-row {
   margin-bottom: 12px;
   display: flex;
-  /* Reste horizontal pour forcer les champs à être côte à côte */
   flex-wrap: wrap; 
   justify-content: center;
   width: 100%;
@@ -382,15 +422,7 @@ body {
   align-items: center;
 }
 
-/* SUPPRESSION DES RÈGLES RESPONSIVE QUI CAUSAIENT L'EMPILAGE */
-/* J'ai supprimé la @media query pour la barre de navigation et j'ai ajusté le CSS général. */
-
-/* Ajustements pour les titres sur mobile, conservés pour la lisibilité */
 @media screen and (max-width: 768px) {
-  /* La navbar n'est plus en flex-direction: column; */
-
-  /* Les liens ne sont plus en flex-direction: column; */
-
   #home h1 {
     font-size: 2.2rem;
   }
@@ -626,9 +658,7 @@ body {
       font-size: 0.9rem;
   }
 }@media screen and (max-width: 768px) {
-  
-  /* FORCE L'EMPILLEMENT VERTICAL sur les petits écrans */
-  .navbar {
+    .navbar {
     flex-direction: column; /* Le logo, les liens et l'icône s'empilent */
     padding: 15px 10px;
     align-items: center; /* Centre le contenu horizontalement */
@@ -636,26 +666,25 @@ body {
 
   /* Centrer la liste de liens */
   .nav-links {
-    flex-direction: column; /* Empile les liens individuellement (Accueil, La Carte, Réserver) */
-    align-items: center; /* Centre les liens (texte) */
-    padding: 10px 0; /* Ajouter un peu d'espace vertical */
+    flex-direction: column; 
+    align-items: center; 
+    padding: 10px 0;
     width: 100%;
   }
 
   .nav-links li {
-    margin: 5px 0; /* Ajouter de l'espace vertical entre les liens */
+    margin: 5px 0; 
   }
   
   .nav-links a {
-    font-size: 1em; /* Taille standard */
+    font-size: 1em; 
   }
 
   .logo {
     font-size: 1.2em;
-    margin-bottom: 10px; /* Espace sous le logo */
+    margin-bottom: 10px; 
   }
   
-  /* Gérer l'icône Instagram (elle va s'empiler en dernier) */
   .navbar > a {
     margin-top: 10px;
   }
@@ -663,5 +692,4 @@ body {
   #home h1 {
     font-size: 2.2rem;
   }
-  /* ... le reste de votre media query ... */
 }
